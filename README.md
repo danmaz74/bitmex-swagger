@@ -58,18 +58,10 @@ require 'swagger_client'
 SwaggerClient.configure do |config|
   # Configure API key authorization: apiKey
   config.api_key['api-key'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['api-key'] = 'Bearer'
-
-  # Configure API key authorization: apiNonce
-  config.api_key['api-nonce'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['api-nonce'] = 'Bearer'
-
-  # Configure API key authorization: apiSignature
-  config.api_key['api-signature'] = 'YOUR API KEY'
-  # Uncomment the following line to set a prefix for the API key, e.g. 'Bearer' (defaults to nil)
-  #config.api_key_prefix['api-signature'] = 'Bearer'
+  
+  config.api_secret = 'YOUR API SECRET'
+  
+  config.host = 'testnet.bitmex.com'
 end
 
 api_instance = SwaggerClient::APIKeyApi.new

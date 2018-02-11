@@ -115,6 +115,8 @@ module SwaggerClient
       # set custom cert, if provided
       req_opts[:cainfo] = @config.ssl_ca_cert if @config.ssl_ca_cert
 
+      req_body = ''
+
       if [:post, :patch, :put, :delete].include?(http_method)
         req_body = build_request_body(header_params, form_params, opts[:body])
         req_opts.update :body => req_body
@@ -122,6 +124,15 @@ module SwaggerClient
           @config.logger.debug "HTTP request body param ~BEGIN~\n#{req_body}\n~END~\n"
         end
       end
+
+      # Bitmex authentication header
+      api_expires = (Time.now + 10.minutes).to_i
+      to_digest = http_method.to_s.upcase + @config.base_path + path + api_expires.to_s + req_body.to_s
+      api_signature = OpenSSL::HMAC.hexdigest('SHA256', @config.api_secret, to_digest)
+      req_opts[:headers].merge!({
+                                    'api-expires' => api_expires,
+                                    'api-signature' => api_signature
+                                })
 
       request = Typhoeus::Request.new(url, req_opts)
       download_file(request) if opts[:return_type] == 'File'

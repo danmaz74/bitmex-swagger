@@ -31,6 +31,9 @@ module SwaggerClient
     #   config.api_key['api_key'] = 'xxx'
     attr_accessor :api_key
 
+    # used for Bitmex authentication
+    attr_accessor :api_secret
+
     # Defines API key prefixes used with API Key authentications.
     #
     # @return [Hash] key: parameter name, value: API key prefix
