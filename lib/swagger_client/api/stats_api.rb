@@ -54,7 +54,7 @@ module SwaggerClient
       form_params = {}
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = []
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
@@ -103,7 +103,7 @@ module SwaggerClient
       form_params = {}
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = []
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
@@ -152,7 +152,7 @@ module SwaggerClient
       form_params = {}
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = []
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,

@@ -87,7 +87,7 @@ module SwaggerClient
       form_params["text"] = opts[:'text'] if !opts[:'text'].nil?
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = ['apiKey', 'apiNonce', 'apiSignature']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
@@ -139,7 +139,7 @@ module SwaggerClient
       form_params["orders"] = opts[:'orders'] if !opts[:'orders'].nil?
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = ['apiKey', 'apiNonce', 'apiSignature']
       data, status_code, headers = @api_client.call_api(:PUT, local_var_path,
         :header_params => header_params,
@@ -197,7 +197,7 @@ module SwaggerClient
       form_params["text"] = opts[:'text'] if !opts[:'text'].nil?
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = ['apiKey', 'apiNonce', 'apiSignature']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
@@ -255,7 +255,7 @@ module SwaggerClient
       form_params["text"] = opts[:'text'] if !opts[:'text'].nil?
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = ['apiKey', 'apiNonce', 'apiSignature']
       data, status_code, headers = @api_client.call_api(:DELETE, local_var_path,
         :header_params => header_params,
@@ -311,7 +311,7 @@ module SwaggerClient
       form_params["timeout"] = timeout
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = ['apiKey', 'apiNonce', 'apiSignature']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -370,7 +370,7 @@ module SwaggerClient
       form_params["price"] = opts[:'price'] if !opts[:'price'].nil?
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = ['apiKey', 'apiNonce', 'apiSignature']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -443,7 +443,7 @@ module SwaggerClient
       form_params = {}
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = ['apiKey', 'apiNonce', 'apiSignature']
       data, status_code, headers = @api_client.call_api(:GET, local_var_path,
         :header_params => header_params,
@@ -553,7 +553,7 @@ module SwaggerClient
       form_params["text"] = opts[:'text'] if !opts[:'text'].nil?
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = ['apiKey', 'apiNonce', 'apiSignature']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
@@ -605,7 +605,7 @@ module SwaggerClient
       form_params["orders"] = opts[:'orders'] if !opts[:'orders'].nil?
 
       # http body (model)
-      post_body = nil
+      post_body = form_params
       auth_names = ['apiKey', 'apiNonce', 'apiSignature']
       data, status_code, headers = @api_client.call_api(:POST, local_var_path,
         :header_params => header_params,
