@@ -129,7 +129,12 @@ module SwaggerClient
 
       # Bitmex authentication header
       api_expires = (Time.now + 10.minutes).to_i
-      path_with_query = query_params.blank? ? path : "#{path}?#{query_params.to_query}"
+
+      # to authenticate, we need to know the exact path (including query) that will be called
+      request = Typhoeus::Request.new(url, req_opts)
+      full_url = request.url
+      path_with_query = full_url.split('/api/v1').last
+
       to_digest = http_method.to_s.upcase + @config.base_path + path_with_query + api_expires.to_s + req_body.to_s
       api_signature = OpenSSL::HMAC.hexdigest('SHA256', @config.api_secret, to_digest)
       req_opts[:headers].merge!({
@@ -137,6 +142,7 @@ module SwaggerClient
                                     'api-signature' => api_signature
                                 })
 
+      # now create the real request, including the authentication headers
       request = Typhoeus::Request.new(url, req_opts)
       download_file(request) if opts[:return_type] == 'File'
       request
