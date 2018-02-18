@@ -129,7 +129,8 @@ module SwaggerClient
 
       # Bitmex authentication header
       api_expires = (Time.now + 10.minutes).to_i
-      to_digest = http_method.to_s.upcase + @config.base_path + path + api_expires.to_s + req_body.to_s
+      path_with_query = query_params.blank? ? path : "#{path}?#{query_params.to_query}"
+      to_digest = http_method.to_s.upcase + @config.base_path + path_with_query + api_expires.to_s + req_body.to_s
       api_signature = OpenSSL::HMAC.hexdigest('SHA256', @config.api_secret, to_digest)
       req_opts[:headers].merge!({
                                     'api-expires' => api_expires,
